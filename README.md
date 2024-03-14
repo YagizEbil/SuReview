@@ -1,2 +1,2 @@
-# CS310_Mobile_Development
+# SuReview
 Sabancı Mobile Development CS310
