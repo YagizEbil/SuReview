@@ -4,30 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02c762fb-bf6a-4544-81c8-2dec4f9c7caa" name="Changes" comment="Added Mongo base">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/6623ba4e5d09d86e8fc934dc_log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/snippets/index.bson.br" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.2024-04-20T12-43-38Z-00000" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.interim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000004" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/CourseOffering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/config" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/mongosh_repl_history" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/mongosh_repl_history" afterDir="false" />
+    <list default="true" id="02c762fb-bf6a-4544-81c8-2dec4f9c7caa" name="Changes" comment="Professor&amp;Course, Repository&amp;Service">
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/repository/ProfessorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/service/GenericService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/service/ProfessorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/collection-2--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/collection-2--6948506844329587340.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/collection-4--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/collection-4--6948506844329587340.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-3--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-3--6948506844329587340.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-5--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-5--6948506844329587340.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-6--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-6--6948506844329587340.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000003" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/mongod.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/sizeStorer.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuReview_Spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.interim" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.interim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000004" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000004" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -159,7 +146,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713610450722</updated>
       <workItem from="1713610456989" duration="735000" />
-      <workItem from="1713615296008" duration="4972000" />
+      <workItem from="1713615296008" duration="6178000" />
     </task>
     <task id="LOCAL-00001" summary="Added Mongo base">
       <option name="closed" value="true" />
@@ -169,7 +156,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713616193854</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Professor Course models">
+      <option name="closed" value="true" />
+      <created>1713620445638</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713620445638</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Professor Course models">
+      <option name="closed" value="true" />
+      <created>1713620720140</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713620720140</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +192,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Mongo base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Mongo base" />
+    <MESSAGE value="Added Professor Course models" />
+    <MESSAGE value="Professor&amp;Course, Repository&amp;Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Professor&amp;Course, Repository&amp;Service" />
   </component>
 </project>
