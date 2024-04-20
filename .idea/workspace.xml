@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02c762fb-bf6a-4544-81c8-2dec4f9c7caa" name="Changes" comment="Professor&amp;Course, Repository&amp;Service">
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/repository/CourseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/repository/ProfessorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/service/GenericService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/service/ProfessorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/controller/ProfessorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/repository/CourseOfferingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" afterDir="false" />
@@ -146,7 +144,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713610450722</updated>
       <workItem from="1713610456989" duration="735000" />
-      <workItem from="1713615296008" duration="6178000" />
+      <workItem from="1713615296008" duration="8259000" />
     </task>
     <task id="LOCAL-00001" summary="Added Mongo base">
       <option name="closed" value="true" />
@@ -172,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713620720140</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Professor&amp;Course, Repository&amp;Service">
+      <option name="closed" value="true" />
+      <created>1713621601829</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713621601829</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
