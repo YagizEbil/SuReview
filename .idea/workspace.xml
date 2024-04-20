@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02c762fb-bf6a-4544-81c8-2dec4f9c7caa" name="Changes" comment="Added Mongo base">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/6623ba4e5d09d86e8fc934dc_log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/snippets/index.bson.br" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.2024-04-20T12-43-38Z-00000" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/diagnostic.data/metrics.interim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000004" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/CourseOffering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/config" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/mongosh_repl_history" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/.mongodb/mongosh/mongosh_repl_history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.turtle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/WiredTiger.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/collection-2--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/collection-2--6948506844329587340.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/collection-4--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/collection-4--6948506844329587340.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-3--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-3--6948506844329587340.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-5--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-5--6948506844329587340.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/index-6--6948506844329587340.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/index-6--6948506844329587340.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/journal/WiredTigerLog.0000000003" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/mongod.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Mongo/data/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Mongo/data/sizeStorer.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/java/com/sabanciuniv/sureview/model/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuReview_Spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SuReview_Spring/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="evesfect" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/evesfect" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="evesfect" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2fMUTOelcpazlzSidyHABSEIJKf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JAR Application.SuReview-0.0.1-SNAPSHOT.jar.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "evesfect",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SuReview-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/SuReview_Spring/target/SuReview-0.0.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.SuReview-0.0.1-SNAPSHOT.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02c762fb-bf6a-4544-81c8-2dec4f9c7caa" name="Changes" comment="" />
+      <created>1713610450722</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713610450722</updated>
+      <workItem from="1713610456989" duration="735000" />
+      <workItem from="1713615296008" duration="4972000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added Mongo base">
+      <option name="closed" value="true" />
+      <created>1713616193854</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713616193854</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added Mongo base" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Mongo base" />
+  </component>
+</project>
