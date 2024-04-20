@@ -21,22 +21,22 @@ public class DataSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // Professor Check
-        String professorName = "Kamer Kaya";
+        String professorName = "Erhan Kavak";
         Professor professor = professorService.findByName(professorName);
         if (professor == null) {
             professor = new Professor();
             professor.setName(professorName);
-            professor.setDepartment("Computer Science");
+            professor.setDepartment("Mechatronics Engineering");
             professor = professorService.save(professor);
         }
 
         // Course Check
-        String courseTitle = "CS204";
+        String courseTitle = "ME 304";
         Course course = courseService.findByTitle(courseTitle);
         if (course == null) {
             course = new Course();
             course.setTitle(courseTitle);
-            course.setDescription("Advanced Programming");
+            course.setDescription("Motion Kinematics");
             course = courseService.save(course);
         }
 
