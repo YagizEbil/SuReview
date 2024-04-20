@@ -1,0 +1,4 @@
+use sureviewdb
+clear
+print("hello");
+show dbs;
