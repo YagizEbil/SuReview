@@ -19,20 +19,35 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Professor professor = new Professor();
-        professor.setName("Kamer Kaya");
-        professor.setDepartment("Computer Science");
-        professor = professorService.save(professor);
 
-        Course course = new Course();
-        course.setTitle("CS204");
-        course.setDescription("Advanced Programming");
-        course = courseService.save(course);
+        // Professor Check
+        String professorName = "Kamer Kaya";
+        Professor professor = professorService.findByName(professorName);
+        if (professor == null) {
+            professor = new Professor();
+            professor.setName(professorName);
+            professor.setDepartment("Computer Science");
+            professor = professorService.save(professor);
+        }
 
-        CourseOffering offering = new CourseOffering();
-        offering.setCourseId(course.getId());
-        offering.setProfessorId(professor.getId());
-        offering.setSemester("Fall 2023");
-        courseOfferingService.save(offering);
+        // Course Check
+        String courseTitle = "CS204";
+        Course course = courseService.findByTitle(courseTitle);
+        if (course == null) {
+            course = new Course();
+            course.setTitle(courseTitle);
+            course.setDescription("Advanced Programming");
+            course = courseService.save(course);
+        }
+
+        // Course Offering Check
+        String semester = "Fall 2023";
+        if (!courseOfferingService.offeringExists(course.getId(), professor.getId(), semester)) {
+            CourseOffering offering = new CourseOffering();
+            offering.setCourseId(course.getId());
+            offering.setProfessorId(professor.getId());
+            offering.setSemester(semester);
+            courseOfferingService.save(offering);
+        }
     }
 }

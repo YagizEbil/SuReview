@@ -21,6 +21,10 @@ public class ProfessorService implements GenericService<Professor> {
         return professorRepository.findById(id).orElseThrow(() -> new RuntimeException("Professor not found"));
     }
 
+    public Professor findByName(String name) {
+        return professorRepository.findByName(name).orElse(null);
+    }
+
     @Override
     public Iterable<Professor> findAll() {
         return professorRepository.findAll();

@@ -20,7 +20,11 @@ public class CourseService implements GenericService<Course> {
         return courseRepository.findById(id).orElseThrow(() -> new RuntimeException("Course not found"));
     }
 
-    @Override
+    public Course findByTitle(String title) {
+        return courseRepository.findByTitle(title).orElse(null);
+    }
+
+        @Override
     public Iterable<Course> findAll() {
         return courseRepository.findAll();
     }

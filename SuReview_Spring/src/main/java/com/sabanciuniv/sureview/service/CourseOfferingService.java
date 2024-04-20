@@ -29,4 +29,8 @@ public class CourseOfferingService implements GenericService<CourseOffering> {
     public void deleteById(String id) {
         courseOfferingRepository.deleteById(id);
     }
+
+    public boolean offeringExists(String courseId, String professorId, String semester) {
+        return courseOfferingRepository.findByCourseIdAndProfessorIdAndSemester(courseId, professorId, semester).isPresent();
+    }
 }
