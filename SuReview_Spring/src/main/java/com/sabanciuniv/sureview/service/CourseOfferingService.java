@@ -33,4 +33,9 @@ public class CourseOfferingService implements GenericService<CourseOffering> {
     public boolean offeringExists(String courseId, String professorId, String semester) {
         return courseOfferingRepository.findByCourseIdAndProfessorIdAndSemester(courseId, professorId, semester).isPresent();
     }
+
+    public CourseOffering findByCourseIdProfessorIdAndSemester(String courseId, String professorId, String semester) {
+        return courseOfferingRepository.findByCourseIdAndProfessorIdAndSemester(courseId, professorId, semester)
+                .orElseThrow(() -> new RuntimeException("No course offering found for the specified criteria"));
+    }
 }
