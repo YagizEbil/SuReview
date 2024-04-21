@@ -1,6 +1,7 @@
 package com.sabanciuniv.sureview.controller;
 
 import com.sabanciuniv.sureview.model.Course;
+import com.sabanciuniv.sureview.repository.CourseRepository;
 import com.sabanciuniv.sureview.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CourseController {
     private final CourseService courseService;
+    private final CourseRepository courseRepository;
 
     @PostMapping
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
@@ -26,7 +28,7 @@ public class CourseController {
 
     @GetMapping
     public ResponseEntity<Iterable<Course>> getAllCourses() {
-        Iterable<Course> courses = courseService.findAll();
+        Iterable<Course> courses = courseRepository.findAll();
         return ResponseEntity.ok(courses);
     }
 
