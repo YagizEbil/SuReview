@@ -4,8 +4,6 @@ import com.sabanciuniv.sureview.model.User;
 import com.sabanciuniv.sureview.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,21 +12,17 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private UserRepository userRepository;
 
-    // Endpoint to retrieve the current user's profile
-    @GetMapping("/profile")
-    @PreAuthorize("isAuthenticated()")
-    public ResponseEntity<User> getUserProfile(Authentication authentication) {
-        String email = authentication.getName(); // Email is used as the username
+    // Endpoint to retrieve a user's profile
+    @GetMapping("/profile/{email}")
+    public ResponseEntity<User> getUserProfile(@PathVariable String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return ResponseEntity.ok(user);
     }
 
-    // Endpoint to update the current user's profile
-    @PutMapping("/profile")
-    @PreAuthorize("isAuthenticated()")
-    public ResponseEntity<User> updateUserProfile(@RequestBody User updatedUser, Authentication authentication) {
-        String email = authentication.getName(); // Email is used as the username
+    // Endpoint to update a user's profile
+    @PutMapping("/profile/{email}")
+    public ResponseEntity<User> updateUserProfile(@RequestBody User updatedUser, @PathVariable String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 

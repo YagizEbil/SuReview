@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
-@Document(collection = "reviews")
 @Data
 public class Review {
     @Id
