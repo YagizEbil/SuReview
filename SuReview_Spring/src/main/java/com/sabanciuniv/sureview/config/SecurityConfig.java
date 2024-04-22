@@ -15,9 +15,9 @@ public class SecurityConfig extends AbstractHttpConfigurer<SecurityConfig, HttpS
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/api/courses/**").permitAll() // Allow access to /api/courses
-                        .anyRequest().authenticated()) // Any other request needs authentication
-                .formLogin(formLogin -> formLogin.permitAll()); // Allow form login
+                        .anyRequest().permitAll()) // Allow all requests
+                .formLogin(AbstractHttpConfigurer::disable) // Disable form login
+                .csrf(AbstractHttpConfigurer::disable); // Disable CSRF
         return http.build();
     }
 }
