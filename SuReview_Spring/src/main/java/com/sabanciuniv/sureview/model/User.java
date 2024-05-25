@@ -10,5 +10,5 @@ public class User {
     @Id
     private String id;
     private String email; // Username as fetched from the token
-    private String displayName; // Optionally store additional user info
+    private String username; // Optionally store additional user info
 }

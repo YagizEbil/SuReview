@@ -14,12 +14,10 @@ public class UserService {
     private UserRepository userRepository;
 
     public boolean authenticate(String username, String email) {
-        Optional<User> userByUsername = userRepository.findByUsername(username);
+
         Optional<User> userByEmail = userRepository.findByEmail(email);
 
-        if (userByUsername.isPresent() && userByEmail.isPresent()) {
-            return userByUsername.get().getId().equals(userByEmail.get().getId());
-        }
+
 
         return false;
     }

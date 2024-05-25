@@ -33,9 +33,20 @@ public class UserController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         // Update user fields here
-        user.setDisplayName(updatedUser.getDisplayName());
+        user.setUsername(updatedUser.getUsername());
         // Save the updated user information
         user = userRepository.save(user);
         return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/create")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<User> createUser(@RequestBody User newUser) {
+        if (userRepository.findByEmail(newUser.getEmail()).isPresent()) {
+            throw new RuntimeException("User with this email already exists");
+        }
+
+        User savedUser = userRepository.save(newUser);
+        return ResponseEntity.ok(savedUser);
     }
 }
