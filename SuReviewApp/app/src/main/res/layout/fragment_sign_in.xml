@@ -56,18 +56,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSuPass"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserName"
         app:rippleColor="#F4F4F4" />
 
     <EditText
-        android:id="@+id/txtSuPass"
+        android:id="@+id/txtUserName"
         android:layout_width="371dp"
         android:layout_height="59dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Username"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -12,7 +12,7 @@
         android:layout_width="179dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="20dp"
         android:text="Register Now"
         android:textSize="30sp"
@@ -49,30 +49,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
-    <EditText
-        android:id="@+id/txtPassRegister"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSuMailRegister" />
-
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="300dp"
         android:layout_height="67dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="20dp"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSuMailRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
