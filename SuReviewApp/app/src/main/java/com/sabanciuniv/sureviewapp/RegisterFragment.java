@@ -1,23 +1,16 @@
 package com.sabanciuniv.sureviewapp;
 
-import android.app.Person;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sabanciuniv.sureviewapp.databinding.FragmentRegisterBinding;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import java.util.Objects;
+import com.sabanciuniv.sureviewapp.databinding.FragmentRegisterBinding;
 
 
 public class RegisterFragment extends Fragment {
@@ -41,9 +34,6 @@ public class RegisterFragment extends Fragment {
         binding.btnSignUp.setOnClickListener(v -> {
             User u = new User(binding.txtSuMailRegister.getText().toString(),binding.txtUsername.getText().toString());
 
-            UserViewModel userModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
-
-            userModel.setUserData(u);
 
             NavController navController = Navigation.findNavController(requireActivity(),R.id.fragmentContainerView);
 

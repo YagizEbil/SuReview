@@ -1,5 +1,6 @@
 package com.sabanciuniv.sureviewapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +21,9 @@ import android.widget.Toast;
 
 import com.sabanciuniv.sureviewapp.databinding.FragmentSignInBinding;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.concurrent.ExecutorService;
+
+
 
 
 public class SignInFragment extends Fragment {
@@ -34,29 +34,46 @@ public class SignInFragment extends Fragment {
     private EditText txtUserName;
     private EditText txtEmail;
     private Button btnSignIn;
-    private ApiService apiService;
 
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            String response = msg.obj.toString();
+
+            if(response.startsWith("Success")){
+                Toast.makeText(getContext(),"You signed in successfully!",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), HomeScreenContainerActivity.class);
+                startActivity(i);
+            }
+            else{
+                //No user found
+                Toast.makeText(getContext(),"No user found!",Toast.LENGTH_SHORT).show();
+            }
+
+            return true;
+        }
+    });
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        binding = FragmentSignInBinding.inflate(inflater, container, false);
+        view = binding.getRoot();
 
         txtEmail = view.findViewById(R.id.txtSuMail);
         txtUserName = view.findViewById(R.id.txtUserName);
         btnSignIn = view.findViewById(R.id.btnSignIn);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://your-backend-url/api/") // Replace with your backend URL
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        apiService = retrofit.create(ApiService.class);
+
 
         btnSignIn.setOnClickListener(v -> {
             String username = txtUserName.getText().toString();
             String email = txtEmail.getText().toString();
-            signIn(username, email);
+            StartScreenRepository repo = new StartScreenRepository();
+            ExecutorService srv = ((SuReviewApp)getActivity().getApplication()).srv;
+
+            repo.singIn(srv,handler,email,username);
         });
 
         binding.btnRegister.setOnClickListener(v -> {//This func goes to next fragment
@@ -66,37 +83,14 @@ public class SignInFragment extends Fragment {
             navController.navigate(R.id.action_signInFragment_to_registerFragment);
         });
 
-        UserViewModel userMode = new ViewModelProvider(getActivity()).get(UserViewModel.class);
 
-
-        userMode.getUserData().observe(getActivity(),user -> { //This func runs whenever a new user presses the register button
-            Toast.makeText(getActivity(), "You can now sign in!",Toast.LENGTH_SHORT).show();
-        });
 
         return binding.getRoot();
 
 
     }
 
-    private void signIn(String username, String email) {
-        LoginRequest loginRequest = new LoginRequest(username, email);
 
-        apiService.signIn(loginRequest).enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(getActivity(), "Sign-in successful", Toast.LENGTH_SHORT).show();
-                    //TODO Need to start a Activity to actual page here
-                    //Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_otherFragment);
-                } else {
-                    Toast.makeText(getActivity(), "Invalid credentials", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
-                Toast.makeText(getActivity(), "An error occurred", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
 }

@@ -23,6 +23,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="SuReview"
+        android:textColor="#000000"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -46,11 +47,12 @@
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_width="370dp"
+        android:layout_height="63dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="20dp"
+        android:background="#004088"
         android:text="Sign In"
         android:textColorLink="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,16 +63,16 @@
 
     <EditText
         android:id="@+id/txtUserName"
-        android:layout_width="371dp"
-        android:layout_height="59dp"
+        android:layout_width="383dp"
+        android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="Username"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSuMail" />
 
@@ -78,11 +80,12 @@
         android:id="@+id/btnRegister"
         android:layout_width="370dp"
         android:layout_height="67dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
+        android:background="#004088"
         android:text="Register"
         app:iconTint="#00BCD4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
