@@ -27,9 +27,9 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             String displayName = loginRequest.getDisplayName();
             logger.info("Attempting authentication for email: {}, displayName: {}", email, displayName);
             if (email.endsWith("@sabanciuniv.edu") && email.startsWith(displayName)) {
-                return getAuthenticationManager().authenticate(
-                        new UsernamePasswordAuthenticationToken(email, "", Collections.emptyList())
-                );
+                Authentication authentication = new UsernamePasswordAuthenticationToken(email, "", Collections.emptyList());
+                logger.info("Authentication success for email: {}", email);
+                return getAuthenticationManager().authenticate(authentication);
             } else {
                 logger.warn("Invalid email or username format for email: {}", email);
                 throw new RuntimeException("Invalid email or username");
