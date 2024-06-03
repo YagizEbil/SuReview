@@ -12,12 +12,20 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationFilter.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private final JwtUtil jwtUtil;
+
+    public CustomAuthenticationFilter(JwtUtil jwtUtil) {
+        this.jwtUtil = jwtUtil;
+    }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -43,7 +51,13 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         logger.info("Authentication successful for principal: {}", authResult.getPrincipal());
-        response.setStatus(HttpServletResponse.SC_OK);
+        String jwt = jwtUtil.generateToken(authResult.getName());
+
+        Map<String, String> responseBody = new HashMap<>();
+        responseBody.put("token", jwt);
+        response.setContentType("application/json");
+        response.getWriter().write(objectMapper.writeValueAsString(responseBody));
+        response.getWriter().flush();
     }
 
     @Override

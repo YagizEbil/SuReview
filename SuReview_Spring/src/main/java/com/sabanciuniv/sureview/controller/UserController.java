@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     // Endpoint to retrieve the current user's profile
     @GetMapping("/profile")
