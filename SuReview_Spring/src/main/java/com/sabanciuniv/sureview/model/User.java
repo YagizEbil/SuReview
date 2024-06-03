@@ -9,6 +9,6 @@ import lombok.Data;
 public class User {
     @Id
     private String id;
-    private String email; // Username as fetched from the token
-    private String username; // Optionally store additional user info
+    private String email;
+    private String displayName;
 }

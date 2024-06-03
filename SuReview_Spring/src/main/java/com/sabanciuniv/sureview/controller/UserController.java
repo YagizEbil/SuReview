@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     // Endpoint to retrieve the current user's profile
     @GetMapping("/profile")
@@ -33,20 +33,9 @@ public class UserController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         // Update user fields here
-        user.setUsername(updatedUser.getUsername());
+        user.setDisplayName(updatedUser.getDisplayName());
         // Save the updated user information
         user = userRepository.save(user);
         return ResponseEntity.ok(user);
-    }
-
-    @PostMapping("/create")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<User> createUser(@RequestBody User newUser) {
-        if (userRepository.findByEmail(newUser.getEmail()).isPresent()) {
-            throw new RuntimeException("User with this email already exists");
-        }
-
-        User savedUser = userRepository.save(newUser);
-        return ResponseEntity.ok(savedUser);
     }
 }
