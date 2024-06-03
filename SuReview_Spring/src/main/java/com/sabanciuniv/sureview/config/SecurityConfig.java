@@ -1,12 +1,15 @@
 package com.sabanciuniv.sureview.config;
 
 import com.sabanciuniv.sureview.security.CustomAuthenticationFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+
     private final UserDetailsService userDetailsService;
 
     public SecurityConfig(UserDetailsService userDetailsService) {
@@ -25,10 +30,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        logger.info("Configuring security filter chain");
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/public/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(customAuthenticationFilter(http.getSharedObject(AuthenticationManager.class)), UsernamePasswordAuthenticationFilter.class);
 
@@ -37,6 +43,7 @@ public class SecurityConfig {
 
     @Bean
     public CustomAuthenticationFilter customAuthenticationFilter(AuthenticationManager authenticationManager) {
+        logger.info("Creating CustomAuthenticationFilter");
         CustomAuthenticationFilter filter = new CustomAuthenticationFilter();
         filter.setAuthenticationManager(authenticationManager);
         return filter;
@@ -44,11 +51,13 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        logger.info("Creating AuthenticationManager");
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+        logger.info("Creating PasswordEncoder");
         return new BCryptPasswordEncoder();
     }
 }
