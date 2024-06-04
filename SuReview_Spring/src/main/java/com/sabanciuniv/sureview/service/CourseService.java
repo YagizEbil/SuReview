@@ -24,7 +24,7 @@ public class CourseService implements GenericService<Course> {
         return courseRepository.findByTitle(title).orElse(null);
     }
 
-        @Override
+    @Override
     public Iterable<Course> findAll() {
         return courseRepository.findAll();
     }

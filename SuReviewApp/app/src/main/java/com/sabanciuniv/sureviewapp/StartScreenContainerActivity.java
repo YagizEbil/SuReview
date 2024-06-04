@@ -2,26 +2,24 @@ package com.sabanciuniv.sureviewapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.sabanciuniv.sureviewapp.databinding.LayoutStartContainerActivityBinding;
+import java.util.concurrent.ExecutorService;
 
 
-
-public class StartContainerActivity extends AppCompatActivity {
+public class StartScreenContainerActivity extends AppCompatActivity {
 
 
     @Override
@@ -39,10 +37,6 @@ public class StartContainerActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar2);
 
         NavigationUI.setupWithNavController(toolbar,navController,appBarConfiguration);
-
-
-
-
 
 
     }

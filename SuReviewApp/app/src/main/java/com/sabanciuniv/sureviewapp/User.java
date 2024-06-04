@@ -6,13 +6,12 @@ public class User implements Serializable {
     private String email;
     private String DisplayName;
 
-    private String Password;
+
 
     public User() {}
 
-    public User(String email,String DisplayName,String Password){
+    public User(String email,String DisplayName){
         this.email = email;
         this.DisplayName = DisplayName;
-        this.Password = Password;
     }
 }

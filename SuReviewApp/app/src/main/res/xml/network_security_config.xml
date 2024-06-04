@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">10.3.0.14</domain>
+        <domain includeSubdomains="true">otherdomain.com</domain>
+        <!-- Add other domains as needed -->
+    </domain-config>
+    <base-config cleartextTrafficPermitted="true"/>
+</network-security-config>
