@@ -1,10 +1,15 @@
 package com.sabanciuniv.sureviewapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -12,12 +17,29 @@ import androidx.navigation.Navigation;
 
 import com.sabanciuniv.sureviewapp.databinding.FragmentRegisterBinding;
 
+import java.util.concurrent.ExecutorService;
+
 
 public class RegisterFragment extends Fragment {
 
     FragmentRegisterBinding binding;
 
 
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            String response = msg.obj.toString();
+
+            if(response.startsWith("success")){
+                Toast.makeText(getContext(),"You have registered successfully! \n You can go back and sign in ",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getContext(),"Please use your SUmail to register",Toast.LENGTH_SHORT).show();
+            }
+
+            return true;
+        }
+    });
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,18 +49,13 @@ public class RegisterFragment extends Fragment {
         binding = FragmentRegisterBinding.inflate(getLayoutInflater());
 
 
-        String Username = binding.txtUsername.getText().toString();
-        String SuMailRegister = binding.txtSuMailRegister.getText().toString();
-
-
         binding.btnSignUp.setOnClickListener(v -> {
-            User u = new User(binding.txtSuMailRegister.getText().toString(),binding.txtUsername.getText().toString());
+            String Username = binding.txtUsername.getText().toString();
+            String SuMailRegister = binding.txtSuMailRegister.getText().toString();
 
-
-            NavController navController = Navigation.findNavController(requireActivity(),R.id.fragmentContainerView);
-
-            navController.popBackStack();
-
+            StartScreenRepository repo = new StartScreenRepository();
+            ExecutorService srv = ((SuReviewApp)getActivity().getApplication()).srv;
+            repo.register(srv,handler,SuMailRegister,Username);
         });
 
 

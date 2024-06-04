@@ -35,13 +35,13 @@
         android:layout_width="376dp"
         android:layout_height="62dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="SU Mail"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -50,31 +50,16 @@
         android:layout_width="370dp"
         android:layout_height="63dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="20dp"
         android:background="#004088"
         android:text="Sign In"
         android:textColorLink="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+        app:layout_constraintTop_toBottomOf="@+id/txtSuMail"
         app:rippleColor="#F4F4F4" />
-
-    <EditText
-        android:id="@+id/txtUserName"
-        android:layout_width="383dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSuMail" />
 
     <Button
         android:id="@+id/btnRegister"

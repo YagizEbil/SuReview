@@ -1,11 +1,15 @@
 package com.sabanciuniv.sureviewapp;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Message;
 import android.os.Handler;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,13 +23,13 @@ import java.util.concurrent.ExecutorService;
 
 public class StartScreenRepository {
 
-    public void singIn(ExecutorService srv, Handler uiHandler,String mail,String Username){
+    public void singIn(ExecutorService srv, Handler uiHandler,String mail){
         srv.execute(()->{
 
-
+            Log.d("DEV", "Inside srv.execute");
 
             try{
-                URL url = new URL("http://10.3.0.14:8080/api/users/profile");//This is not the correct API
+                URL url = new URL("http://localhost:8080/api/auth/signin");
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -36,8 +40,48 @@ public class StartScreenRepository {
                 conn.setRequestProperty("Content-Type","application/JSON");
 
                 JSONObject objToSend = new JSONObject();
-                objToSend.put("mail",mail);
-                objToSend.put("username",Username);
+                objToSend.put("email",mail);
+
+
+                BufferedOutputStream writer = new BufferedOutputStream(conn.getOutputStream());
+
+                writer.write(objToSend.toString().getBytes(StandardCharsets.UTF_8));
+                writer.flush();
+
+
+                Message msg = new Message();//This is for testing
+                msg.obj = "response";
+                uiHandler.sendMessage(msg);
+
+
+            } catch (IOException | JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+
+        });
+    }
+
+    public void register(ExecutorService srv, Handler uiHandler,String mail,String displayName){
+        srv.execute(()->{
+
+            Log.d("DEV", "Inside srv.execute");
+
+            try{
+                URL url = new URL("http://localhost:8080/api/auth/register");
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type","application/JSON");
+
+                JSONObject objToSend = new JSONObject();
+                objToSend.put("email",mail);
+                objToSend.put("displayName",displayName);
+
 
                 BufferedOutputStream writer = new BufferedOutputStream(conn.getOutputStream());
 
@@ -55,9 +99,12 @@ public class StartScreenRepository {
 
                 }
 
-                String response = buffer.toString(); //response recieved from the backend
-                Message msg = new Message();
-                msg.obj = response;
+                JSONObject obj = new JSONObject(buffer.toString());
+
+                String strToken = obj.getString("token");
+
+                Message msg = new Message();//This is for testing
+                msg.obj = strToken;
                 uiHandler.sendMessage(msg);
 
 

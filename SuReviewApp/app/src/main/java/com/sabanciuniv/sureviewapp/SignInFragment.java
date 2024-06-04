@@ -40,16 +40,15 @@ public class SignInFragment extends Fragment {
         public boolean handleMessage(@NonNull Message msg) {
             String response = msg.obj.toString();
 
-            if(response.startsWith("Success")){
+            if(response.startsWith("response")){//TODO change to token
                 Toast.makeText(getContext(),"You signed in successfully!",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getActivity(), HomeScreenContainerActivity.class);
                 startActivity(i);
             }
-            else{
-                //No user found
-                Toast.makeText(getContext(),"No user found!",Toast.LENGTH_SHORT).show();
-            }
 
+
+            else{Toast.makeText(getContext(),"No user found!",Toast.LENGTH_SHORT).show();}
+            //No user found
             return true;
         }
     });
@@ -62,18 +61,18 @@ public class SignInFragment extends Fragment {
         view = binding.getRoot();
 
         txtEmail = view.findViewById(R.id.txtSuMail);
-        txtUserName = view.findViewById(R.id.txtUserName);
+
         btnSignIn = view.findViewById(R.id.btnSignIn);
 
 
 
         btnSignIn.setOnClickListener(v -> {
-            String username = txtUserName.getText().toString();
+
             String email = txtEmail.getText().toString();
             StartScreenRepository repo = new StartScreenRepository();
             ExecutorService srv = ((SuReviewApp)getActivity().getApplication()).srv;
 
-            repo.singIn(srv,handler,email,username);
+            repo.singIn(srv,handler,email);
         });
 
         binding.btnRegister.setOnClickListener(v -> {//This func goes to next fragment
