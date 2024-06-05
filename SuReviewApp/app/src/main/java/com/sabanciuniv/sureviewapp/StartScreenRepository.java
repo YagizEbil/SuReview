@@ -43,10 +43,10 @@ public class StartScreenRepository {
                 objToSend.put("email",mail);
 
 
-                BufferedOutputStream writer = new BufferedOutputStream(conn.getOutputStream());
+                //BufferedOutputStream writer = new BufferedOutputStream(conn.getOutputStream());
 
-                writer.write(objToSend.toString().getBytes(StandardCharsets.UTF_8));
-                writer.flush();
+                //writer.write(objToSend.toString().getBytes(StandardCharsets.UTF_8));
+                //writer.flush();
 
 
                 Message msg = new Message();//This is for testing
@@ -103,8 +103,9 @@ public class StartScreenRepository {
 
                 String strToken = obj.getString("token");
 
+                String mesaj = "response";
                 Message msg = new Message();//This is for testing
-                msg.obj = strToken;
+                msg.obj = mesaj;
                 uiHandler.sendMessage(msg);
 
 

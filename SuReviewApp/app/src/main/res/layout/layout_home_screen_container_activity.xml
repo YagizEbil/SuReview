@@ -23,19 +23,19 @@
 
     <View
         android:id="@+id/toolbarBackground"
-        android:layout_width="0dp"
-        android:layout_height="81dp"
+        android:layout_width="413dp"
+        android:layout_height="60dp"
         android:background="#004088"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_min="100dp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnProfile" />
 
     <ImageButton
         android:id="@+id/btnProfile"
-        android:layout_width="97dp"
-        android:layout_height="100dp"
+        android:layout_width="82dp"
+        android:layout_height="77dp"
         android:background="@android:color/transparent"
         android:src="@drawable/png_transparent_user_profile_compuail_removebg_preview"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,8 +44,8 @@
 
     <ImageButton
         android:id="@+id/btnHome"
-        android:layout_width="96dp"
-        android:layout_height="100dp"
+        android:layout_width="85dp"
+        android:layout_height="76dp"
         android:background="@android:color/transparent"
         android:src="@drawable/png_transparent_computer_icons_home_house_home_angle_building_rectangle_thumbnail_removebg_preview"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,8 +55,8 @@
 
     <ImageButton
         android:id="@+id/btnSettings"
-        android:layout_width="97dp"
-        android:layout_height="99dp"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
         android:background="@android:color/transparent"
         android:src="@drawable/computer_iconst_removebg_preview"
         app:layout_constraintBottom_toBottomOf="parent"

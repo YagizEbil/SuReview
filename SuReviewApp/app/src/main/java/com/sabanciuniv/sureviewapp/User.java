@@ -14,4 +14,12 @@ public class User implements Serializable {
         this.email = email;
         this.DisplayName = DisplayName;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDisplayName() {
+        return DisplayName;
+    }
 }

@@ -66,7 +66,7 @@ public class SignInFragment extends Fragment {
 
 
 
-        btnSignIn.setOnClickListener(v -> {
+        binding.btnSignIn.setOnClickListener(v -> {
 
             String email = txtEmail.getText().toString();
             StartScreenRepository repo = new StartScreenRepository();
