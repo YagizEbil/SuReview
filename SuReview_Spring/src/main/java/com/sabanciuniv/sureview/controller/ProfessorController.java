@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class ProfessorController {
 
     private final ProfessorService professorService;
+    private final AuthController authController;
 
     @PostMapping
     public ResponseEntity<Professor> createProfessor(@RequestBody Professor professor) {
+        professor.setCreatedBy(authController.getAuthenticatedUserName());
         return ResponseEntity.ok(professorService.save(professor));
     }
 
