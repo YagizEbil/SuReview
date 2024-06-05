@@ -21,11 +21,16 @@ public class HomeScreenContainerActivity extends AppCompatActivity {
     ImageButton btnHome;
     ImageButton btnProfile;
     ImageButton btnSettings;
+    private SharedViewModel sharedViewModel;
+
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_home_screen_container_activity);
+        token = getIntent().getStringExtra("TOKEN");
+        sharedViewModel.setToken(token);
 
         btnHome = findViewById(R.id.btnHome);
         btnSettings = findViewById(R.id.btnSettings);

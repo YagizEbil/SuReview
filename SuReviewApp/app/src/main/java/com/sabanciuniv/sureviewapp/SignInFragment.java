@@ -40,14 +40,21 @@ public class SignInFragment extends Fragment {
         public boolean handleMessage(@NonNull Message msg) {
             String response = msg.obj.toString();
 
-            if(response.startsWith("response")){//TODO change to token
-                Toast.makeText(getContext(),"You signed in successfully!",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getActivity(), HomeScreenContainerActivity.class);
-                startActivity(i);
+            if(response.startsWith("WRONG")){//TODO change to token
+
+                Toast.makeText(getContext(),"You need to sing in with your SUmail!",Toast.LENGTH_SHORT).show();
+            }
+            else if(response.startsWith("EXIST")){
+                Toast.makeText(getContext(),"This email does not have an account! \n You need to register",Toast.LENGTH_SHORT).show();
             }
 
-
-            else{Toast.makeText(getContext(),"No user found!",Toast.LENGTH_SHORT).show();}
+            else{
+                String token = response;
+                Toast.makeText(getContext(),"You signed in successfully!",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), HomeScreenContainerActivity.class);
+                i.putExtra("TOKEN",token);
+                startActivity(i);
+            }
             //No user found
             return true;
         }
@@ -61,6 +68,7 @@ public class SignInFragment extends Fragment {
         view = binding.getRoot();
 
         txtEmail = view.findViewById(R.id.txtSuMail);
+        txtUserName = view.findViewById(R.id.txtDisplayName);
 
         btnSignIn = view.findViewById(R.id.btnSignIn);
 
@@ -69,10 +77,11 @@ public class SignInFragment extends Fragment {
         binding.btnSignIn.setOnClickListener(v -> {
 
             String email = txtEmail.getText().toString();
+            String displayName = txtUserName.getText().toString();
             StartScreenRepository repo = new StartScreenRepository();
             ExecutorService srv = ((SuReviewApp)getActivity().getApplication()).srv;
 
-            repo.singIn(srv,handler,email);
+            repo.singIn(srv,handler,email,displayName);
         });
 
         binding.btnRegister.setOnClickListener(v -> {//This func goes to next fragment

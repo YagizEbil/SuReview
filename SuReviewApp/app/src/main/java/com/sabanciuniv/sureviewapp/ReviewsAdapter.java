@@ -30,6 +30,8 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
         Review review = reviewList.get(position);
         holder.contentTextView.setText(review.getContent());
         holder.ratingTextView.setText(String.valueOf(review.getRating()));
+        holder.professorTextView.setText(review.getProfessor());
+        holder.courseTextView.setText(review.getCourse());
     }
 
     @Override
@@ -38,13 +40,16 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
     }
 
     public static class ReviewViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView, contentTextView, ratingTextView;
+        TextView titleTextView, contentTextView, ratingTextView,courseTextView,professorTextView;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
 
             contentTextView = itemView.findViewById(R.id.reviewContentTextView);
             ratingTextView = itemView.findViewById(R.id.reviewRatingTextView);
+            courseTextView = itemView.findViewById(R.id.courseNameTextView);
+            professorTextView = itemView.findViewById(R.id.professorNameTextView);
+
         }
     }
 }

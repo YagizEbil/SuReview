@@ -1,7 +1,5 @@
 package com.sabanciuniv.sureviewapp;
 
-
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +29,11 @@ public class ReviewsAdapterHome extends RecyclerView.Adapter<ReviewsAdapterHome.
     @Override
     public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
         Review review = reviewList.get(position);
+        holder.textViewReviewerName.setText(review.getDisplayName());
+        holder.textViewProfessorCourse.setText(review.getProfessor() + " - " + review.getCourse());
         holder.textViewContent.setText(review.getContent());
-        // Set other views like imageViewAvatar if needed
+        // If you have an avatar URL or resource, set it here
+        // holder.imageViewAvatar.setImageResource(R.drawable.avatar_placeholder); // Example
     }
 
     @Override
@@ -41,14 +42,17 @@ public class ReviewsAdapterHome extends RecyclerView.Adapter<ReviewsAdapterHome.
     }
 
     public static class ReviewViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewReviewerName;
+        TextView textViewProfessorCourse;
         TextView textViewContent;
         ImageView imageViewAvatar;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
+            textViewReviewerName = itemView.findViewById(R.id.textViewReviewerName);
+            textViewProfessorCourse = itemView.findViewById(R.id.textViewProfessorCourse);
             textViewContent = itemView.findViewById(R.id.textViewContent);
             imageViewAvatar = itemView.findViewById(R.id.imageViewAvatar);
         }
     }
 }
-

@@ -40,8 +40,8 @@ public class ProfileFragment extends Fragment {
 
 
         reviewList = new ArrayList<>();
-        reviewList.add(new Review(test, "I love this app!", 5));
-        reviewList.add(new Review(test, "It works well.", 4));
+        reviewList.add(new Review("tolga.tektunali", "I love this app!", 5,"John","SPS101"));
+        reviewList.add(new Review("test", "It works well.", 4,"Mary","MATH101"));
 
         emailTextView.setText("Email: " + test.getEmail());
         usernameTextView.setText("Username: " + test.getDisplayName());

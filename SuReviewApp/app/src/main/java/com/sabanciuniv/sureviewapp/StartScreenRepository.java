@@ -23,7 +23,7 @@ import java.util.concurrent.ExecutorService;
 
 public class StartScreenRepository {
 
-    public void singIn(ExecutorService srv, Handler uiHandler,String mail){
+    public void singIn(ExecutorService srv, Handler uiHandler,String mail,String displayName){
         srv.execute(()->{
 
             Log.d("DEV", "Inside srv.execute");
@@ -41,17 +41,48 @@ public class StartScreenRepository {
 
                 JSONObject objToSend = new JSONObject();
                 objToSend.put("email",mail);
+                objToSend.put("displayName",displayName);
 
 
-                //BufferedOutputStream writer = new BufferedOutputStream(conn.getOutputStream());
+                int responseCode = conn.getResponseCode();
 
-                //writer.write(objToSend.toString().getBytes(StandardCharsets.UTF_8));
-                //writer.flush();
+                if(responseCode == HttpURLConnection.HTTP_OK){
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuilder buffer = new StringBuilder();
+                    String line = "";
+
+                    while((line=reader.readLine())!=null){
+
+                        buffer.append(line);
+
+                    }
+
+                    JSONObject obj = new JSONObject(buffer.toString());
+
+                    String strToken = obj.getString("token");
 
 
-                Message msg = new Message();//This is for testing
-                msg.obj = "response";
-                uiHandler.sendMessage(msg);
+                    Message msg = new Message();//This is for testing
+                    msg.obj = strToken;
+                    uiHandler.sendMessage(msg);
+                }
+                else if (responseCode == HttpURLConnection.HTTP_FORBIDDEN)
+                {
+                    String response  = "WRONG";
+
+                    Message msg = new Message();
+                    msg.obj = response;
+                    uiHandler.sendMessage(msg);
+                }
+                else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED)
+                {
+                    String response  = "EXIST";
+
+                    Message msg = new Message();
+                    msg.obj = response;
+                    uiHandler.sendMessage(msg);
+                }
 
 
             } catch (IOException | JSONException e) {
@@ -78,6 +109,7 @@ public class StartScreenRepository {
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type","application/JSON");
 
+
                 JSONObject objToSend = new JSONObject();
                 objToSend.put("email",mail);
                 objToSend.put("displayName",displayName);
@@ -88,25 +120,40 @@ public class StartScreenRepository {
                 writer.write(objToSend.toString().getBytes(StandardCharsets.UTF_8));
                 writer.flush();
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
-                StringBuilder buffer = new StringBuilder();
-                String line = "";
+                int responseCode = conn.getResponseCode();
 
-                while((line=reader.readLine())!=null){
+                if(responseCode == HttpURLConnection.HTTP_OK){
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
-                    buffer.append(line);
+                    StringBuilder buffer = new StringBuilder();
+                    String line = "";
 
+                    while((line=reader.readLine())!=null){
+
+                        buffer.append(line);
+
+                    }
+
+                    JSONObject obj = new JSONObject(buffer.toString());
+
+                    String strEmail = obj.getString("email");
+
+
+                    Message msg = new Message();//This is for testing
+                    msg.obj = strEmail;
+                    uiHandler.sendMessage(msg);
                 }
 
-                JSONObject obj = new JSONObject(buffer.toString());
+                else if (responseCode == HttpURLConnection.HTTP_FORBIDDEN)
+                {
+                    String response  = "WRONG";
 
-                String strToken = obj.getString("token");
+                    Message msg = new Message();
+                    msg.obj = response;
+                    uiHandler.sendMessage(msg);
+                }
 
-                String mesaj = "response";
-                Message msg = new Message();//This is for testing
-                msg.obj = mesaj;
-                uiHandler.sendMessage(msg);
 
 
             } catch (IOException | JSONException e) {

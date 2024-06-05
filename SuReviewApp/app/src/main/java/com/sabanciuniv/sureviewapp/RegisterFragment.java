@@ -30,11 +30,11 @@ public class RegisterFragment extends Fragment {
         public boolean handleMessage(@NonNull Message msg) {
             String response = msg.obj.toString();
 
-            if(response.startsWith("success")){
-                Toast.makeText(getContext(),"You have registered successfully! \n You can go back and sign in ",Toast.LENGTH_SHORT).show();
+            if(response.startsWith("WRONG")){
+                Toast.makeText(getContext(),"You need to use your SUmail to sign in",Toast.LENGTH_SHORT).show();
             }
             else{
-                Toast.makeText(getContext(),"Please use your SUmail to register",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"You have registered successfully! \n You can go back and sign in ",Toast.LENGTH_SHORT).show();
             }
 
             return true;
